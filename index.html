@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>McLike - Đặt đồ ăn nhanh</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="description" content="McLike - Web đặt đồ ăn nhanh hiện đại: Burger, Gà rán, Pizza, Combo và Đồ uống.">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="bg-mc-red text-white sticky-top shadow-sm">
+    <div class="container d-flex align-items-center py-2">
+      
+      <a class="navbar-brand text-white fw-bold me-3" href="index.html">🍔 McLike</a>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <!-- Thanh link phụ -->
+<div class="top-links text-center mt-3">
+  <a href="index.html">Trang chủ</a> 
+  <a href="about.html">Giới thiệu</a> 
+  <a href="faq.html">FAQ</a> 
+  <a href="contact.html">Liên hệ</a>
+</div>
+
+        <button class="btn btn-warning btn-sm fw-bold" id="openLoginBtn" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</button>
+        <button class="btn btn-outline-light position-relative" id="cartBtn" aria-label="Mở giỏ hàng">
+          🛒 <span id="cartBadge" class="badge bg-light text-dark ms-1">0</span>
+        </button>
+      </div>
+    </div>
+    
+  </header>
+  
+<!-- Thanh danh mục -->
+<nav class="category-bar mt-3">
+  <ul>
+    <li><a href="#burger">Burger</a></li>
+    <li><a href="#chicken">Gà rán</a></li>
+    <li><a href="#pizza">Pizza</a></li>
+    <li><a href="#drink">Nước uống</a></li>
+    <li><a href="#combo">Combo</a></li>
+  </ul>
+</nav>
+
+  <!-- Hero -->
+  <section class="hero text-white d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold">Nhanh — Ngon — Tiện</h1>
+      <p class="lead mb-4">Gọi món, nhận hàng trong tích tắc. Ưu đãi hấp dẫn mỗi ngày!</p>
+      <a href="#menu" class="btn btn-warning btn-lg fw-bold">Xem thực đơn</a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-4 bg-white">
+    <div class="container text-center">
+      <p class="mb-0">Giao hàng nhanh. Chất lượng đảm bảo. Khuyến mãi hấp dẫn cho đơn đầu tiên!</p>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <main id="menu" class="py-5">
+
+    <!-- BURGER -->
+    <section id="burger" class="menu-section">
+      <div class="container">
+        <div class="section-head d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-mc-red mb-0">🍔 Burger</h2>
+          <p class="text-muted mb-0 small">Bánh nóng, thịt thơm, sốt đậm vị.</p>
+        </div>
+        <div class="row gx-3 gy-4" id="burgerList"></div>
+      </div>
+    </section>
+
+    <!-- CHICKEN -->
+    <section id="chicken" class="menu-section bg-light">
+      <div class="container">
+        <div class="section-head d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-mc-red mb-0">🍗 Gà rán</h2>
+          <p class="text-muted mb-0 small">Giòn rụm, ướp đậm vị.</p>
+        </div>
+        <div class="row gx-3 gy-4" id="chickenList"></div>
+      </div>
+    </section>
+
+    <!-- PIZZA -->
+    <section id="pizza" class="menu-section">
+      <div class="container">
+        <div class="section-head d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-mc-red mb-0">🍕 Pizza</h2>
+          <p class="text-muted mb-0 small">Đế giòn, toppings tươi ngon.</p>
+        </div>
+        <div class="row gx-3 gy-4" id="pizzaList"></div>
+      </div>
+    </section>
+
+    <!-- DRINK -->
+    <section id="drink" class="menu-section bg-light">
+      <div class="container">
+        <div class="section-head d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-mc-red mb-0">🥤 Nước uống</h2>
+          <p class="text-muted mb-0 small">Giải khát mát lạnh, năng lượng tươi mới.</p>
+        </div>
+        <div class="row gx-3 gy-4" id="drinkList"></div>
+      </div>
+    </section>
+
+    <!-- COMBO -->
+    <section id="combo" class="menu-section">
+      <div class="container">
+        <div class="section-head d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-mc-red mb-0">🍟 Combo</h2>
+          <p class="text-muted mb-0 small">Tiết kiệm hơn, ngon trọn vị.</p>
+        </div>
+        <div class="row gx-3 gy-4" id="comboList"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-mc-red text-white py-3">
+    <div class="container text-center small">
+      © 2025 McLike • Hotline: 1900-000 • Email: contact@mclike.test
+    </div>
+  </footer>
+
+  <!-- CART -->
+  <aside id="cartPanel" class="cart-panel">
+    <div class="cart-header d-flex justify-content-between align-items-center p-3 border-bottom">
+      <h5 class="mb-0">Giỏ hàng</h5>
+      <button id="closeCart" class="btn btn-sm btn-outline-secondary" aria-label="Đóng giỏ">&#10005;</button>
+    </div>
+    <div id="cartItems" class="p-3 overflow-auto" style="max-height:60vh;">
+      <div class="text-muted">Giỏ hàng trống</div>
+    </div>
+    <div class="cart-footer p-3 border-top">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <strong>Tổng</strong>
+        <strong id="cartTotal">0₫</strong>
+      </div>
+      <button id="checkoutBtn" class="btn btn-warning w-100 mb-2">Thanh toán</button>
+      <button id="clearCart" class="btn btn-outline-secondary w-100">Xóa giỏ hàng</button>
+    </div>
+  </aside>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-mc-red">Đăng nhập</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Email hoặc SĐT</label>
+          <input id="loginEmail" type="text" class="form-control mb-2">
+          <label class="form-label">Mật khẩu</label>
+          <input id="loginPass" type="password" class="form-control mb-3">
+          <div class="d-grid">
+            <button id="loginSubmit" class="btn btn-mc-red text-white">Đăng nhập</button>
+          </div>
+          <p class="mt-3 text-center small">Chưa có tài khoản? <a href="#" id="openRegister">Đăng ký ngay</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGISTER MODAL -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-mc-red">Đăng ký</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Họ & tên</label>
+          <input id="regName" type="text" class="form-control mb-2">
+          <label class="form-label">Email / SĐT</label>
+          <input id="regEmail" type="text" class="form-control mb-2">
+          <label class="form-label">Mật khẩu</label>
+          <input id="regPass" type="password" class="form-control mb-3">
+          <div class="d-grid">
+            <button id="regSubmit" class="btn btn-mc-red text-white">Tạo tài khoản</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-mc-red fw-bold">Thanh toán đơn hàng</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="checkoutList" class="mb-3 small text-muted"></div>
+          <div class="d-flex justify-content-between align-items-center border-top pt-2 mb-3">
+            <strong>Tổng cộng:</strong>
+            <strong id="checkoutTotal">0₫</strong>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Địa chỉ giao hàng</label>
+            <input type="text" id="checkoutAddress" class="form-control" placeholder="VD: 12 Lê Duẩn, Q.1, TP.HCM">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phương thức thanh toán</label>
+            <select id="checkoutMethod" class="form-select">
+              <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+              <option value="momo">Ví MoMo</option>
+              <option value="atm">Thẻ ngân hàng nội địa</option>
+            </select>
+          </div>
+          <div class="d-grid">
+            <button id="checkoutConfirm" class="btn btn-mc-red text-white fw-bold">Xác nhận đặt hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1200;">
+    <div id="addToast" class="toast align-items-center text-white bg-success border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="addToastBody">Đã thêm món</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
